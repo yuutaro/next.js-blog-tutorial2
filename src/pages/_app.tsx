@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+// storeを永続化するために必要なオブジェクト。
 import { persistor, store } from "@/store";
 
 
