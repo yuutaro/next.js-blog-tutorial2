@@ -10,16 +10,18 @@ export default function Home() {
   const theme = useSelector((state: any) => state.theme.currentTheme);
   const dispatch = useDispatch();
 
-  const changeT = () => {
+  const handler = () => {
     dispatch(changeTheme(theme === "light" ? "dark" : "light"));
   };
+
+
   return (
     <>
       <Head>
         <title>My Next.js Site</title>
       </Head>
       <h1>Hello world!</h1>
-      <button onClick={changeT}>changeTheme</button>
+      <button onClick={handler}>changeTheme</button>
       <p>{theme}</p>
     </>
   );
