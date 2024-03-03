@@ -1,9 +1,7 @@
 import Header from "@/components/Header";
 import Theme from "@/components/theme";
-import { changeTheme } from "@/store/modules/themeSlice";
 import { Inter } from "next/font/google";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +9,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Home | My WeBlog</title>
+      </Head>
       <Theme>
         <Header>
           <div>hello world!</div>
