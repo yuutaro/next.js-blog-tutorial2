@@ -24,7 +24,6 @@ export default function Header({ children }: HeaderProps): React.ReactElement {
                 {/* Navbar menu content here */}
                 <li><a>Navbar Item 1</a></li>
                 <li><a>Navbar Item 2</a></li>
-                <ThemeChanger />
               </ul>
             </div>
           </div>
@@ -35,6 +34,7 @@ export default function Header({ children }: HeaderProps): React.ReactElement {
           <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
+            <ThemeChanger />
             <li><a>Sidebar Item 1</a></li>
             <li><a>Sidebar Item 2</a></li>
           </ul>
