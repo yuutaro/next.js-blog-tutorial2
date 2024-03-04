@@ -5,8 +5,11 @@ import Head from "next/head";
 import React, { useState } from "react";
 import { client } from "@/libs/client";
 import { Blogs, Blog } from "@/types/index";
+import { useRouter } from "next/router";
 
 export default function Blogs({ blogs }: { blogs: Blogs }): React.ReactElement {
+  const router = useRouter();
+
   const tabs = ["All", "日記", "テック", "レビュー"];
   const [activeTab, setActiveTab] = useState("All");
 
@@ -16,6 +19,12 @@ export default function Blogs({ blogs }: { blogs: Blogs }): React.ReactElement {
 
   const removeTagFromString = (str: string) => {
     return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
+  }
+
+  const showPage = (e: React.MouseEvent<HTMLDivElement>) => {
+    const title = e.currentTarget.querySelector(".card-title")?.textContent;
+    const blog = blogs.contents.find((blog) => blog.title === title);
+    router.push(`/blogs/${blog?.id}`);
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Blogs({ blogs }: { blogs: Blogs }): React.ReactElement {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
             {blogs.contents.map((blog: Blog) => (
-              <div key={blog.id} className="card shadow-lg">
+              <div key={blog.id} className="card shadow-lg" onClick={showPage}>
                 <div className="card-body">
                   <img src={blog.eyecatch.url} alt={blog.title} className="w-full h-48 object-cover" />
                   <h2 className="card-title">{blog.title}</h2>
