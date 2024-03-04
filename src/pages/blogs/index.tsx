@@ -54,7 +54,6 @@ export default function Blogs({ blogs }: { blogs: Blogs }): React.ReactElement {
 }
 
 export const getStaticProps = async () => {
-
   const data: Blogs = await client.get({
     endpoint: "blogs",
   }).then((res) => res)
