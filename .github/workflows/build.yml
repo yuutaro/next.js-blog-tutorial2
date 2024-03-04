@@ -1,0 +1,33 @@
+name: Build next-app on s3 (www.waxwork.site)
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY}}
+        run: |
+          npm run build
+
+      - name: Install AWS CLI
+        run: | 
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws s3 cp --recursive --region ap-northeast-1 out s3://www.waxwork.site
