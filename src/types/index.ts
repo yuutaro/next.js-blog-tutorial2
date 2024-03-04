@@ -1,4 +1,4 @@
-type Blog = {
+export type Blog = {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -12,7 +12,7 @@ type Blog = {
     width: number;
   };
   category: {
-    id: string;
+    id: "review" | "tech" | "diary";
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
@@ -21,7 +21,7 @@ type Blog = {
   };
 };
 
-type Blogs = {
+export type Blogs = {
   contents: Blog[];
   totalCount: number;
   offset: number;

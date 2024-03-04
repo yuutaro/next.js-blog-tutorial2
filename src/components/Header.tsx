@@ -35,8 +35,8 @@ export default function Header({ children }: HeaderProps): React.ReactElement {
           <ul className="menu p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
             <ThemeChanger />
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
+            <li><a>Blogs</a></li>
+            <li><a>About</a></li>
           </ul>
         </div>
       </div>

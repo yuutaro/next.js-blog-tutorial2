@@ -6,6 +6,7 @@ import { client } from "@/libs/client";
 import React from "react";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import { Blogs } from "@/types/index";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,12 +16,12 @@ export default function Home(props: any): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Home | My WeBlog</title>
+        <title>Home | Waxwork_ymのブログ</title>
         <meta name="description" content="My personal blog HomePage" />
       </Head>
       <Theme>
         <Header>
-          <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+          <div className="hero min-h-screen" style={{ backgroundImage: 'url(/warehouse-8589487_1280.jpg)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
