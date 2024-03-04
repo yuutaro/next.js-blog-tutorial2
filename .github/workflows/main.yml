@@ -27,3 +27,15 @@ jobs:
 
     - name: run a one-line script 2
       run: echo Hello, world! 2
+
+  hoge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: run a one-line script
+      run: echo Hello, world!
+
+    - name: run a one-line script 2
+      run: echo Hello, world! 2
