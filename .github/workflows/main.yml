@@ -1,1 +1,26 @@
-# aaa
+
+# name: ワークフローの名前をnameで定義
+name: CI
+
+# on: どのタイミングでこのワークフローが走るかが定義される
+# push: 指定したブランチにpushされたとき
+# pull_request: pull requestが作成されたとき
+# workflow_dispatch: 手動で実行するとき
+on:
+  push:
+    branches: [ "main"]
+  pull_request:
+    branches: [ "main"]
+  workflow_dispatch:
+
+
+# jobs: このワークフローで実行するジョブを定義
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: run one-line script
+      run: echo Hello, world!
